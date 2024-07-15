@@ -2,7 +2,7 @@
 
     <div class="mb-4 flex justify-between items-center mt-4">
         <a href="{{ route('courses.create') }}" class="ml-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            {{ __('Add New Course') }}
+            {{ __('messages.course.Add New Course') }}
         </a>
     </div>
 
@@ -15,12 +15,14 @@
                             ID
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Name
+                            Nombre
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Description</th>
+                            Descripción
+                        </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Actions</th>
+                            Acciones
+                        </th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
@@ -30,9 +32,9 @@
                             <td class="px-6 py-4 whitespace-nowrap">{{ $course->name }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $this->getShortDescription( $course->description ) }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                <button onclick="showCourseDetail({{ $course }})" class="text-indigo-600 hover:text-indigo-900">{{ __('View') }}</button>
-                                <a href="{{ route('courses.edit', $course->id) }}" class="text-blue-600 hover:text-blue-900 ml-2">{{ __('Edit') }}</a>
-                                <button onclick="confirmDelete({{ $course }})" class="text-red-600 hover:text-red-900 ml-2">{{ __('Delete') }}</button>
+                                <button onclick="showCourseDetail({{ $course }})" class="text-indigo-600 hover:text-indigo-900">{{ __('messages.course.View') }}</button>
+                                <a href="{{ route('courses.edit', $course->id) }}" class="text-blue-600 hover:text-blue-900 ml-2">{{ __('messages.course.Edit') }}</a>
+                                <button onclick="confirmDelete({{ $course }})" class="text-red-600 hover:text-red-900 ml-2">{{ __('messages.course.Delete') }}</button>
                             </td>
                         </tr>
                     @endforeach

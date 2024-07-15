@@ -1,7 +1,7 @@
 <x-dashboard-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Create Course') }}
+            {{ __('messages.Create Course') }}
         </h2>
     </x-slot>
 
@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900">
 
                     <h2 class="font-semibold text-xl text-gray-700 leading-tight">
-                        {{ __('You can register a new course') }}
+                        {{ __('messages.course.You can register a new course') }}
                     </h2>
 
                     @livewire('dashboard.course.course-create')
