@@ -1,6 +1,6 @@
 <?php
 
-use App\Livewire\CourseComponent;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +19,23 @@ Route::get('/', function () {
 });
 
 
-Route::get('/courses', CourseComponent::class);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function() {
+
+    Route::get('/', function () {
+        return view('dashboard');
+    })->middleware(['verified'])->name('dashboard');
+
+    Route::resources([
+        'courses'    => App\Http\Controllers\Dashboard\CourseController::class,
+        'teachers'   => App\Http\Controllers\Dashboard\TeacherController::class,
+        'subjects'   => App\Http\Controllers\Dashboard\SubjectController::class
+    ]);
+});
+
+require __DIR__.'/auth.php';
