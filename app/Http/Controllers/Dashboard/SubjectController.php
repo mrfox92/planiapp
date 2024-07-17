@@ -13,7 +13,7 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.subjects.index');
     }
 
     /**
@@ -21,7 +21,7 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.subjects.create');
     }
 
     /**
@@ -45,7 +45,7 @@ class SubjectController extends Controller
      */
     public function edit(Subject $subject)
     {
-        //
+        return view('dashboard.subjects.edit', ['subjectId'  =>  $subject->id]);
     }
 
     /**

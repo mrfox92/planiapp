@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Subject;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class SubjectFactory extends Factory
 {
+    protected $model = Subject::class;
     /**
      * Define the model's default state.
      *
@@ -17,7 +19,8 @@ class SubjectFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name'          =>  $this->faker->sentence(3),
+            'description'   =>  $this->faker->text()
         ];
     }
 }

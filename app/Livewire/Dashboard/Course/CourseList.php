@@ -15,8 +15,7 @@ class CourseList extends Component
 
     public function render()
     {
-        $courses = Course::paginate(10);
-        // dd($courses);
+        $courses = Course::orderBy('id', 'desc')->paginate(10);
         return view('livewire.dashboard.course.course-list', [
             'courses'   =>  $courses
         ]);

@@ -13,7 +13,7 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.teachers.index');
     }
 
     /**
@@ -21,7 +21,7 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.teachers.create');
     }
 
     /**
@@ -45,7 +45,7 @@ class TeacherController extends Controller
      */
     public function edit(Teacher $teacher)
     {
-        //
+        return view('dashboard.teachers.edit', ['teacherId' => $teacher->id]);
     }
 
     /**

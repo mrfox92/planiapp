@@ -14,6 +14,6 @@ class CourseSeeder extends Seeder
     public function run(): void
     {
         //  creamos 10 registros sobre la tabla Curso
-        Course::factory()->count(10)->create();
+        Course::factory()->count(20)->create();
     }
 }

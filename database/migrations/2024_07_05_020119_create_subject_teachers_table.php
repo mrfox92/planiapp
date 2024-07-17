@@ -12,6 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         //  tabla relación entre profesor y asignatura
+        // teacher_id = 2 --> 1 matematica
+        // teacher_id = 2 --> 2 lenguaje
+        // teacher_id = 3 --> 1 matematica
         Schema::create('subject_teachers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('subject_id');

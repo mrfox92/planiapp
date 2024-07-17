@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //  1 matematica --> 20 (tercero programacion)
-        //  2 lenguaje   --> 21 (tercero programacion)
-        //  3 ciencias   --> 22 (tercero programacion)
-        //  TODO: lo mejor es crear una tabla
-        Schema::create('subjects', function (Blueprint $table) {
+        Schema::create('course_subject', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->text('description')->nullable();
+            $table->unsignedBigInteger('course_id');
+            $table->unsignedBigInteger('subject_id');
+            $table->foreign('course_id')->references('id')->on('courses');
+            $table->foreign('subject_id')->references('id')->on('teachers');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('subjects');
+        Schema::dropIfExists('course_subject');
     }
 };

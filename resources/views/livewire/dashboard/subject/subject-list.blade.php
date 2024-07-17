@@ -1,8 +1,8 @@
 <div>
 
     <div class="mb-4 flex justify-between items-center mt-4">
-        <a href="{{ route('courses.create') }}" class="ml-auto bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-            <i class="fas fa-plus mr-2"></i>{{ __('messages.course.Add New') }}
+        <a href="{{ route('subjects.create') }}" class="ml-auto bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+            <i class="fas fa-plus mr-2"></i>{{ __('messages.subject.Add New') }}
         </a>
     </div>
 
@@ -19,16 +19,16 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        @foreach ($courses as $course)
+                        @foreach ($subjects as $subject)
                             <tr>
-                                <td class="px-4 py-2 sm:px-6 sm:py-4 whitespace-nowrap">{{ $course->id }}</td>
-                                <td class="px-4 py-2 sm:px-6 sm:py-4 whitespace-nowrap">{{ $course->name }}</td>
-                                <td class="px-4 py-2 sm:px-6 sm:py-4 whitespace-nowrap">{{ $this->getShortDescription( $course->description ) }}</td>
+                                <td class="px-4 py-2 sm:px-6 sm:py-4 whitespace-nowrap">{{ $subject->id }}</td>
+                                <td class="px-4 py-2 sm:px-6 sm:py-4 whitespace-nowrap">{{ $subject->name }}</td>
+                                <td class="px-4 py-2 sm:px-6 sm:py-4 whitespace-nowrap">{{ $this->getShortDescription($subject->description) }}</td>
                                 <td class="px-4 py-2 sm:px-6 sm:py-4 whitespace-nowrap">
 
-                                    <button onclick="showCourseDetail({{ $course }})" class="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline"><i class="fas fa-eye"></i></button>
-                                    <a href="{{ route('courses.edit', $course->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2.5 px-3 rounded focus:outline-none focus:shadow-outline"><i class="fas fa-edit"></i></i></a>
-                                    <button onclick="confirmDelete({{ $course }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline"><i class="fas fa-trash-alt"></i></button>
+                                    <button onclick="showSubjectDetail({{ $subject }})" class="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline"><i class="fas fa-eye"></i></button>
+                                    <a href="{{ route('subjects.edit', $subject->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2.5 px-3 rounded focus:outline-none focus:shadow-outline"><i class="fas fa-edit"></i></i></a>
+                                    <button onclick="confirmDelete({{ $subject }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline"><i class="fas fa-trash-alt"></i></button>
                                 </td>
                             </tr>
                         @endforeach
@@ -40,7 +40,7 @@
     </div>
 
     <div class="mt-4">
-        {{ $courses->links() }} <!-- Mostrar la paginación -->
+        {{ $subjects->links() }} <!-- Mostrar la paginación -->
     </div>
 </div>
 
@@ -48,32 +48,32 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
 <script>
-    function confirmDelete(course) {
+    function confirmDelete(subject) {
 
         Swal.fire({
               title: '¿Estás seguro?',
-              text: `Deseas eliminar curso ${ course.name }?`,
+              text: `¿Deseas eliminar asignatura ${ subject.name } ?`,
               icon: 'warning',
               showCancelButton: true,
               confirmButtonColor: '#3085d6',
               cancelButtonColor: '#d33',
-              confirmButtonText: 'Si, eliminarlo!',
+              confirmButtonText: 'Si, eliminarla!',
               cancelButtonText: 'Cancelar',
             }).then((result) => {
               if (result.isConfirmed) {
-                Livewire.dispatch('deleteCourse', { courseId: course.id });
+                Livewire.dispatch('deleteSubject', { subjectId: subject.id });
               }
             });
     }
 
-    function showCourseDetail(course) {
+    function showSubjectDetail(subject) {
 
         Swal.fire({
-            title: `<h1 class="text-xl font-bold text-gray-600">Detalle Curso</h1>`,
+            title: `<h1 class="text-xl font-bold text-gray-600">Detalle Asignatura</h1>`,
             html: `
-                <h2 style="text-align: left;" class="text-xl text-gray-600 my-2"><strong>Curso:</strong> ${course.name}</h2>
+                <h2 style="text-align: left;" class="text-xl text-gray-600 my-2"><strong>Nombre:</strong> ${subject.name}</h2>
                 <div style="text-align: justify;">
-                    <p class="text-gray-400 mb-2"><strong class="text-gray-600">Descripción:</strong> ${course.description}</p>
+                    <p class="text-gray-400 mb-2"><strong class="text-gray-600">Descripción:</strong> ${subject.description}</p>
                 </div>
                 <br>
                 <hr>
@@ -83,11 +83,11 @@
         });
     }
 
-    Livewire.on('courseDeleted', () => {
+    Livewire.on('deleteSubject', () => {
         Swal.fire({
                 position: "top-end",
                 icon: "success",
-                title: "El curso ha sido eliminado con éxito",
+                title: "La asignatura ha sido eliminada con éxito",
                 showConfirmButton: false,
                 timer: 1500
             });

@@ -22,7 +22,7 @@
         <div>
             <button type="submit"
                 class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                Editar Curso
+                Editar Asignatura
             </button>
         </div>
     </form>
@@ -32,12 +32,12 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        Livewire.on('courseUpdated', params => {
+        Livewire.on('subjectUpdated', params => {
             const { title, text } = params[0];
             Swal.fire({
                 position: "top-end",
                 icon: "success",
-                title: "El curso ha sido editado.",
+                title: "La asignatura ha sido actualizada.",
                 showConfirmButton: false,
                 timer: 1500
             });
