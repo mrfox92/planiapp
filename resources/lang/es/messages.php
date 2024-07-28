@@ -12,10 +12,11 @@ return [
 
     'welcome' => 'Bienvenido',
     'menu' => [
-        'Dashboard' =>  'Inicio',
-        'Courses'   =>  'Cursos',
-        'Teachers'  =>  'Profesores',
-        'Subjects'  =>  'Asignaturas',
+        'Dashboard'         =>  'Inicio',
+        'Courses'           =>  'Cursos',
+        'Teachers'          =>  'Profesores',
+        'Subjects'          =>  'Asignaturas',
+        'Learning Units'    =>  'Unidades Aprendizaje'
     ],
     'course' => [
         'created' => 'Curso creado con éxito',
@@ -59,6 +60,15 @@ return [
         'You can register a new subject'    =>  'Puedes registrar una nueva asignatura',
         'Edit Subject'  =>  'Editar asignatura',
         'You can edit an existing subject'  =>  'Puedes editar una asignatura existente'
+    ],
+    'learning' => [
+        'Learning Units'  =>  'Unidades Aprendizaje',
+        'You`re in module learning units now!'    =>  'Estás en el módulo de unidades de aprendizaje',
+        'Add New'   =>  'Agregar Nuevo',
+        'Create Learning Unit'  =>  'Crear unidad de aprendizaje',
+        'You can register a new learning unit'  =>  'Puedes registrar una nueva unidad de aprendizaje',
+        'Edit Learning Unit'    =>  'Editar unidad de aprendizaje',
+        'You can edit an existing learning unit'    =>  'Puedes editar una unidad de aprendizaje existente'
     ],
     'Profile' => 'Perfil',
     'Create Course' => 'Crear curso',

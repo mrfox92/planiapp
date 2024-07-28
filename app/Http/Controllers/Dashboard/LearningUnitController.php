@@ -13,7 +13,7 @@ class LearningUnitController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.learning-units.index');
     }
 
     /**
@@ -21,7 +21,7 @@ class LearningUnitController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.learning-units.create');
     }
 
     /**
@@ -45,7 +45,7 @@ class LearningUnitController extends Controller
      */
     public function edit(LearningUnit $learningUnit)
     {
-        //
+        return view('dashboard.learning-units.edit', ['learningUnitId'  =>  $learningUnit->id]);
     }
 
     /**

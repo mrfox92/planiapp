@@ -32,9 +32,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function() {
     })->middleware(['verified'])->name('dashboard');
 
     Route::resources([
-        'courses'    => App\Http\Controllers\Dashboard\CourseController::class,
-        'teachers'   => App\Http\Controllers\Dashboard\TeacherController::class,
-        'subjects'   => App\Http\Controllers\Dashboard\SubjectController::class
+        'courses'   =>  App\Http\Controllers\Dashboard\CourseController::class,
+        'teachers'  =>  App\Http\Controllers\Dashboard\TeacherController::class,
+        'subjects'  =>  App\Http\Controllers\Dashboard\SubjectController::class,
+        'learning-units'  =>  App\Http\Controllers\Dashboard\LearningUnitController::class
     ]);
 });
 

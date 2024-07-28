@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('learning_units', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('title');
+            $table->integer('number');
             $table->text('description')->nullable();
             $table->integer('year');
             $table->unsignedBigInteger('subject_id');

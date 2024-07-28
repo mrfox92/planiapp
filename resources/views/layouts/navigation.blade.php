@@ -31,6 +31,11 @@
                         {{ __('messages.menu.Subjects') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('learning-units.index')" :active="request()->routeIs('learning.index')">
+                        {{ __('messages.menu.Learning Units') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
