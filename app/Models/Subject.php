@@ -20,4 +20,9 @@ class Subject extends Model
     {
         return $this->hasMany(LearningUnit::class);
     }
+
+    public function learningObjectives()
+    {
+        return $this->hasMany(LearningObjective::class);
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 
 use App\Models\ExpectedLearning;
+use App\Models\LearningObjective;
 use Illuminate\Http\Request;
 
 class ExpectedLearningController extends Controller
@@ -19,9 +20,9 @@ class ExpectedLearningController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(LearningObjective $objective)
     {
-        //
+        return view('dashboard.expected.create', compact('objective'));
     }
 
     /**

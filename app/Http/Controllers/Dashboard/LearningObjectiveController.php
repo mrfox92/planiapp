@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 
 use App\Models\LearningObjective;
+use App\Models\Subject;
 use Illuminate\Http\Request;
 
 class LearningObjectiveController extends Controller
@@ -19,9 +20,9 @@ class LearningObjectiveController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Subject $subject)
     {
-        //
+        return view('dashboard.objectives.create', compact('subject'));
     }
 
     /**
@@ -35,9 +36,10 @@ class LearningObjectiveController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(LearningObjective $learningObjective)
+    public function show(Subject $subject)
     {
-        //
+        // dd($subject->learningObjectives()->get());
+        return view('dashboard.objectives.show', compact('subject'));
     }
 
     /**

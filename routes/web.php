@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Dashboard\ExpectedLearningController;
+use App\Http\Controllers\Dashboard\LearningObjectiveController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,11 +34,18 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function() {
     })->middleware(['verified'])->name('dashboard');
 
     Route::resources([
-        'courses'   =>  App\Http\Controllers\Dashboard\CourseController::class,
-        'teachers'  =>  App\Http\Controllers\Dashboard\TeacherController::class,
-        'subjects'  =>  App\Http\Controllers\Dashboard\SubjectController::class,
-        'learning-units'  =>  App\Http\Controllers\Dashboard\LearningUnitController::class
+        'courses'           =>  App\Http\Controllers\Dashboard\CourseController::class,
+        'teachers'          =>  App\Http\Controllers\Dashboard\TeacherController::class,
+        'subjects'          =>  App\Http\Controllers\Dashboard\SubjectController::class,
+        'learning-units'    =>  App\Http\Controllers\Dashboard\LearningUnitController::class,
+        'objectives'        =>  App\Http\Controllers\Dashboard\LearningObjectiveController::class
     ]);
+
+    Route::get('subjects/{subject}/objectives/create', [LearningObjectiveController::class, 'create'])->name('learning-objectives.create');
+    // Route::post('subjects/{subject}/objectives', [LearningObjectiveController::class, 'store'])->name('learning-objectives.store');
+    Route::get('subjects/{subject}/objectives/show', [LearningObjectiveController::class, 'show'])->name('learning-objectives.show');
+
+    Route::get('objectives/{objective}/expected/create', [ExpectedLearningController::class, 'create'])->name('expected-learnings.create');
 });
 
 require __DIR__.'/auth.php';

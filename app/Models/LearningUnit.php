@@ -22,4 +22,9 @@ class LearningUnit extends Model
     {
         return $this->belongsTo(Subject::class);
     }
+
+    public function learningObjectives()
+    {
+        return $this->hasMany(LearningObjective::class);
+    }
 }

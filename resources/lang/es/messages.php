@@ -12,11 +12,24 @@ return [
 
     'welcome' => 'Bienvenido',
     'menu' => [
-        'Dashboard'         =>  'Inicio',
+        'Dashboard'         =>  'Panel Principal',
         'Courses'           =>  'Cursos',
         'Teachers'          =>  'Profesores',
         'Subjects'          =>  'Asignaturas',
         'Learning Units'    =>  'Unidades Aprendizaje'
+    ],
+    'objectives'  =>  [
+        'Create Learning Objectives'                =>  'Agregar OA(s)',
+        'Create Learning Objectives for subject'    =>  'Agregar OA(s) para asignatura',
+        'You can register news learning objectives' =>  'Puedes registrar nuevos Objetivos de Aprendizaje (OA)',
+        'Learning Objectives for subject'           =>  'Objetivos de Aprendizaje Asignatura',
+        'You`re in view Learning Objectives now!'   =>  'Estás en la vista de Objetivos de Aprendizaje',
+        'Add New'                                   =>  'Agregar nuevo'
+
+    ],
+    'expected'  =>  [
+        'Create Expected Learning for Learning Objective'   => 'Agregar Aprendizaje(s) Esperado(s) para',
+        'You can register news expected learning'   =>  'Puedes agregar nuevo(s) Aprendizaje(s) Esperado(s)'
     ],
     'course' => [
         'created' => 'Curso creado con éxito',
@@ -70,8 +83,17 @@ return [
         'Edit Learning Unit'    =>  'Editar unidad de aprendizaje',
         'You can edit an existing learning unit'    =>  'Puedes editar una unidad de aprendizaje existente'
     ],
-    'Profile' => 'Perfil',
-    'Create Course' => 'Crear curso',
+    'Profile'               =>  'Perfil',
+    'Log Out'               =>  'Cerrar sesión',
+    'Log in'                =>  'Iniciar sesión',
+    'Register'              =>  'Registrarme',
+    'Create Course'         =>  'Crear curso',
+    'Email'                 =>  'Correo electrónico',
+    'Password'              =>  'Contraseña',
+    'Remember me'           =>  'Recuerdame',
+    'Forgot your password?' =>  '¿Olvidaste tu contraseña?',
+    'You`re logged in!'     =>  '¡Has iniciado sesión!',
+    'Dashboard'             =>  'Panel Principal'
     // Añade más traducciones según sea necesario
 
 ];

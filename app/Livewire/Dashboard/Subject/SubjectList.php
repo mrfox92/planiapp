@@ -29,7 +29,7 @@ class SubjectList extends Component
 
     public function render()
     {
-        $subjects = Subject::orderBy('id', 'desc')->paginate(10);
+        $subjects = Subject::with('learningObjectives')->orderBy('id', 'desc')->paginate(10);
         return view('livewire.dashboard.subject.subject-list', [
             'subjects'  =>  $subjects
         ]);

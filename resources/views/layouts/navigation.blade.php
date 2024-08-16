@@ -32,7 +32,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('learning-units.index')" :active="request()->routeIs('learning.index')">
+                    <x-nav-link :href="route('learning-units.index')" :active="request()->routeIs('learning-units.index')">
                         {{ __('messages.menu.Learning Units') }}
                     </x-nav-link>
                 </div>
@@ -55,7 +55,7 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('messages.Profile') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -65,7 +65,7 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('messages.Log Out') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -101,7 +101,7 @@
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                    {{ __('messages.Profile') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
@@ -111,7 +111,7 @@
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('messages.Log Out') }}
                     </x-responsive-nav-link>
                 </form>
             </div>

@@ -11,12 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //  TODO!: debemos enlazar todo el listado de OAs a una asignatura
+        //  Acto seguido debemos crear el listado de AEs de cada OA
+        //  Para cada AE recordar que hay subitems, se deben agregar el listado
+        //  Luego cuando creamos las unidades se deben seleccionar los OA
+        //  a trabajar en cada unidad
         Schema::create('learning_objectives', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->text('description')->nullable();
-            $table->unsignedBigInteger('learning_unit_id');
-            $table->foreign('learning_unit_id')->references('id')->on('learning_units');
+            $table->unsignedBigInteger('subject_id');
+            $table->foreign('subject_id')->references('id')->on('subjects');
             $table->timestamps();
         });
     }
